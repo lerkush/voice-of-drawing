@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "voice-of-drawing"
+version = "0.1.0"
+description = "Cizginin Sesi - UretJAM 2026"
+authors = ["Lutfiye Erkus"]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = "0.115.12"
+uvicorn = "0.32.1"
+anthropic = "*"
+python-multipart = "*"
+python-dotenv = "*"
+replicate = "*"
+httpx = "*"
+pydantic = "*"
+aiofiles = "*"
+pillow = "^12.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

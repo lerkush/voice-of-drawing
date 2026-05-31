@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Proje özel
+*.db
+audio/
+test_*.py
+staticaudio/

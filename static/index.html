@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çizginin Sesi — Voice of Drawing</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="kapsayici">
+        
+        <!-- HEADER -->
+        <header class="baslik">
+            <h1>Çizginin Sesi</h1>
+            <p class="altyazi">Söylenemeyen şeyin de bir dili vardır.</p>
+        </header>
+
+        <!-- YÜKLEME ALANI -->
+        <section class="yukle-bolum">
+            <h2>Çizimini Yükle</h2>
+
+            <div class="tema-secim">
+                <button class="tema-btn aktif" data-tema="ask">💗 Aşk</button>
+                <button class="tema-btn" data-tema="olum">🖤 Ölüm</button>
+                <button class="tema-btn" data-tema="vatan">🌍 Vatan</button>
+            </div>
+
+            <div class="yukle-alan" id="yukleAlan">
+                <input type="file" id="dosyaInput" accept="image/*" hidden>
+                <div class="yukle-ici" id="yukleIci" onclick="document.getElementById('dosyaInput').click()">
+                    <div class="yukle-ikon">🎨</div>
+                    <p>Çizimini buraya sürükle veya tıkla</p>
+                    <span>JPG, PNG, WebP</span>
+                </div>
+                <img id="onizleme" class="onizleme gizli" alt="Çizim önizleme">
+            </div>
+
+            <button class="isle-btn" id="isleBtn" disabled>
+                ✨ Çizginin Sesini Bul
+            </button>
+        </section>
+
+        <!-- YÜKLEME DURUMU -->
+        <section class="yukleniyor gizli" id="yukleniyorBolum">
+            <div class="spinner"></div>
+            <div class="adimlar">
+                <div class="adim" id="adim1">👁️ Gözetleyici çizimi okuyuyor...</div>
+                <div class="adim" id="adim2">✍️ Şair sesi seçiliyor...</div>
+                <div class="adim" id="adim3">🎼 Besteci müziği tasarlıyor...</div>
+                <div class="adim" id="adim4">🎵 Ses veriliyor...</div>
+            </div>
+        </section>
+
+        <!-- SONUÇ ALANI -->
+        <section class="sonuc gizli" id="sonucBolum">
+
+            <div class="sonuc-kart">
+                <!-- GÖRSEL ANALİZ -->
+                <div class="bolum gozetleyici">
+                    <h3>👁️ Gözetleyici Ne Gördü</h3>
+                    <div class="analiz-grid">
+                        <div class="analiz-item">
+                            <span class="etiket">Duygu</span>
+                            <span class="deger" id="sonucDuygu"></span>
+                        </div>
+                        <div class="analiz-item">
+                            <span class="etiket">Yoğunluk</span>
+                            <span class="deger" id="sonucYogunluk"></span>
+                        </div>
+                        <div class="analiz-item">
+                            <span class="etiket">Hareket</span>
+                            <span class="deger" id="sonucHareket"></span>
+                        </div>
+                        <div class="analiz-item">
+                            <span class="etiket">Renkler</span>
+                            <span class="deger" id="sonucRenkler"></span>
+                        </div>
+                    </div>
+                    <p class="gorsel-detay" id="sonucGorselDetay"></p>
+                </div>
+
+                <!-- ŞİİR -->
+                <div class="bolum sair-bolum">
+                    <h3>✍️ Şair</h3>
+                    <div class="sair-bilgi">
+                        <span class="sair-isim" id="sonucSair"></span>
+                        <span class="sair-neden" id="sonucSairNeden"></span>
+                    </div>
+                    <div class="siir-kutu">
+                        <p class="siir" id="sonucSiir"></p>
+                    </div>
+                </div>
+
+                <!-- MÜZİK TASARIM -->
+                <div class="bolum besteci-bolum">
+                    <h3>🎼 Besteci Kararları</h3>
+                    <div class="muzik-grid">
+                        <div class="analiz-item">
+                            <span class="etiket">Ton</span>
+                            <span class="deger" id="sonucTon"></span>
+                        </div>
+                        <div class="analiz-item">
+                            <span class="etiket">Tempo</span>
+                            <span class="deger" id="sonucTempo"></span>
+                        </div>
+                        <div class="analiz-item">
+                            <span class="etiket">BPM</span>
+                            <span class="deger" id="sonucBpm"></span>
+                        </div>
+                        <div class="analiz-item">
+                            <span class="etiket">Enstrüman</span>
+                            <span class="deger" id="sonucEnstruman"></span>
+                        </div>
+                    </div>
+                    <div class="siirden-imge">
+                        <span class="etiket">Şiirden alınan imge →</span>
+                        <span class="deger" id="sonucImge"></span>
+                    </div>
+                </div>
+
+                <!-- MÜZİK PLAYER -->
+                <div class="bolum muzik-bolum">
+                    <h3>🎵 Çizginin Sesi</h3>
+                    <audio id="muzikPlayer" controls class="muzik-player"></audio>
+                    <p class="muzik-prompt" id="sonucMuzikPrompt"></p>
+                </div>
+
+            </div>
+
+            <button class="yeni-btn" onclick="yeniden()">🎨 Yeni Çizim</button>
+        </section>
+
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

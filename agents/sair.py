@@ -20,7 +20,7 @@ def siir_yaz(tema: str, duygu: str, gorsel_detay: str) -> dict:
     sair_stil = SAIR_STIL.get(sair, "")
     tema_isim = TEMALAR[tema]["isim"]
     tema_felsefi_soru = TEMALAR[tema]["felsefi_soru"]
-    neden = f"{tema_isim} teması + {duygu_norm} duygusu → {sair} sesi en uygun"
+    neden = f"{tema_isim} teması + {duygu_norm} duygusu → {sair} üslubu en uygun"
 
     # Meryem'in hammaddesi varsa ekle
     hammadde = HAMMADDE.get((tema, duygu_norm), {})
@@ -30,7 +30,7 @@ def siir_yaz(tema: str, duygu: str, gorsel_detay: str) -> dict:
         hammadde_str = "\nMeryem Özden'in hammadde dizeleri (ilham al, kopyalama):\n"
         hammadde_str += "\n".join(f"- {d}" for d in dizeler)
 
-    prompt = f"""Sen {sair} şiir dünyasından ilham alan bir şair sesisisin.
+    prompt = f"""Sen {sair} şiir dünyasından ilham alan bir şair ajanısın.
 
 Tema: {tema_isim}
 Felsefi soru: {tema_felsefi_soru}
@@ -40,7 +40,7 @@ Duygu: {duygu_norm}
 {sair} şiir özellikleri: {sair_stil}
 {hammadde_str}
 
-Türkçe, 4-5 dize yaz. O şairin sesinde, gerçek his ve imgeyle. Kalıp cümle değil. Sadece şiiri yaz, açıklama yapma."""
+Türkçe, 4-5 dize yaz. O şairin üslubunda, gerçek his ve imgeyle. Kalıp cümle değil. Sadece şiiri yaz, açıklama yapma."""
 
     try:
         client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
